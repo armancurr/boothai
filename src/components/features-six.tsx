@@ -36,7 +36,7 @@ export default function FeaturesSection() {
             </h2>
           </div>
           <div className="mt-16 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-            <Card variant="soft" className="overflow-hidden p-6">
+            <Card className="overflow-hidden p-6">
               <Target className="text-primary size-5" />
               <h3 className="text-foreground mt-5 text-lg font-semibold">
                 RAG-Powered Query Retrieval
@@ -49,7 +49,7 @@ export default function FeaturesSection() {
               <MeetingIllustration />
             </Card>
 
-            <Card variant="soft" className="group overflow-hidden px-6 pt-6">
+            <Card className="group overflow-hidden px-6 pt-6">
               <CalendarCheck className="text-primary size-5" />
               <h3 className="text-foreground mt-5 text-lg font-semibold">
                 Smart Response Validation
@@ -61,7 +61,7 @@ export default function FeaturesSection() {
 
               <CodeReviewIllustration />
             </Card>
-            <Card variant="soft" className="group overflow-hidden px-6 pt-6">
+            <Card className="group overflow-hidden px-6 pt-6">
               <Sparkles className="text-primary size-5" />
               <h3 className="text-foreground mt-5 text-lg font-semibold">
                 Contextual Learning Assistant
