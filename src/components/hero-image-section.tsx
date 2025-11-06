@@ -167,19 +167,15 @@ export default function HeroImageSection() {
 
             {/* Content overlay */}
             <div className="absolute top-8 left-8 z-20 max-w-lg">
-              <div className="backdrop-blur-md bg-black/30 rounded-lg p-6">
-                <h2 className="text-white text-xl font-semibold lg:text-2xl mb-3">
-                  Transform Your Academic Journey
-                </h2>
-                <p className="text-white/90 text-sm leading-relaxed">
-                  Experience the future of learning with AI Arcade. Get instant,
-                  accurate answers to your academic questions powered by
-                  cutting-edge RAG technology.
-                </p>
-                <p className="text-[10px]">
-                  *Model may be changed in the future
-                </p>
-              </div>
+              <h2 className="text-foreground text-xl font-semibold lg:text-2xl mb-3">
+                Transform Your Academic Journey
+              </h2>
+              <p className="text-foreground text-sm leading-relaxed">
+                Experience the future of learning with AI Arcade. Get instant,
+                accurate answers to your academic questions powered by
+                cutting-edge RAG technology.
+              </p>
+              <p className="text-[10px]">*Model may be changed in the future</p>
             </div>
           </div>
         </div>
