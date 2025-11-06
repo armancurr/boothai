@@ -30,7 +30,7 @@ export default function Features() {
               <Card className="aspect-video overflow-hidden" variant="soft">
                 <Image
                   src="/Untitled2.png"
-                  alt="Academic Resource Search"
+                  alt="Multi-Layer Query Processing"
                   width={400}
                   height={225}
                   className="h-full w-full object-cover"
@@ -38,11 +38,12 @@ export default function Features() {
               </Card>
               <div className="sm:max-w-sm">
                 <h3 className="text-foreground text-xl font-semibold">
-                  Academic Resource Search
+                  Intelligent Query Processing
                 </h3>
                 <p className="text-muted-foreground my-4 text-lg">
-                  Quickly search and retrieve relevant lecture notes, textbooks,
-                  and research papers from your university database.
+                  Advanced AI analyzes your questions through multi-layer
+                  processing, delivering contextually accurate answers with 85%+
+                  precision in under 2 seconds.
                 </p>
               </div>
             </div>
@@ -50,7 +51,7 @@ export default function Features() {
               <Card className="aspect-video overflow-hidden" variant="soft">
                 <Image
                   src="/Untitled3.png"
-                  alt="Personalized Study Helper"
+                  alt="Unified Campus Systems"
                   width={400}
                   height={225}
                   className="h-full w-full object-cover"
@@ -58,11 +59,12 @@ export default function Features() {
               </Card>
               <div className="sm:max-w-sm">
                 <h3 className="text-foreground text-xl font-semibold">
-                  Personalized Study Helper
+                  Unified Campus Intelligence
                 </h3>
                 <p className="text-muted-foreground my-4 text-lg">
-                  Receive customized explanations and step-by-step guidance for
-                  your coursework and assignments.
+                  Access information from UMS, hostel systems, fee portals, and
+                  placement cells—all connected through one intelligent
+                  interface that learns continuously.
                 </p>
               </div>
             </div>
@@ -70,7 +72,7 @@ export default function Features() {
               <Card className="aspect-video overflow-hidden" variant="soft">
                 <Image
                   src="/Untitled4.png"
-                  alt="Interactive Q&A Challenges"
+                  alt="Self-Learning AI System"
                   width={400}
                   height={225}
                   className="h-full w-full object-cover"
@@ -78,11 +80,12 @@ export default function Features() {
               </Card>
               <div className="sm:max-w-sm">
                 <h3 className="text-foreground text-xl font-semibold">
-                  Interactive Q&A Challenges
+                  Self-Improving AI System
                 </h3>
                 <p className="text-muted-foreground my-4 text-lg">
-                  Participate in fun, game-like sessions to test your knowledge
-                  and get immediate feedback on queries.
+                  Every unanswered question becomes a learning opportunity—the
+                  system automatically captures, reviews, and integrates new
+                  knowledge to serve you better.
                 </p>
               </div>
             </div>
