@@ -29,7 +29,7 @@ const members = [
   },
   {
     src: "https://avatars.githubusercontent.com/u/99137927?v=4",
-    name: "Aryan",
+    name: "Aryan Sagar",
     role: "Hardware Engineer",
   },
   {
@@ -51,10 +51,14 @@ export default function TeamSection() {
       >
         <div className="@container mx-auto w-full max-w-5xl px-6">
           <div className="mb-12">
-            <h2 className="text-foreground text-4xl font-semibold pb-10">
+            <h2 className="text-foreground text-4xl font-semibold">
               Meet the Team
             </h2>
-
+            <p className="text-muted-foreground my-4 text-balance text-lg">
+              Our multidisciplinary team of AI specialists, educators, and
+              developers is passionate about transforming university education
+              through innovative RAG technology and interactive experiences.
+            </p>
             <Button asChild variant="outline" className="pr-2">
               <Link href="#">
                 Join the Team
@@ -97,7 +101,7 @@ export default function TeamSection() {
                       <span className="text-foreground font-medium">
                         {member.name}
                       </span>
-                      <div className="text-foreground text-sm">
+                      <div className="text-muted-foreground text-sm">
                         {member.role}
                       </div>
                     </div>

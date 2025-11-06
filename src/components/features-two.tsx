@@ -20,8 +20,8 @@ export default function Features() {
               Interactive Academic Assistance
             </h2>
             <p className="text-muted-foreground mb-12 mt-4 text-balance text-lg">
-              Engage with university resources through AI Arcade's RAG system.
-              Get instant answers to your academic questions in a gamified,
+              Engage with university resources through it's RAG system. Get
+              instant answers to your academic questions in a gamified,
               arcade-style interface.
             </p>
           </div>
