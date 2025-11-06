@@ -9,10 +9,9 @@ import { RGBELoader } from "three/examples/jsm/loaders/RGBELoader.js";
 
 export default function HeroImageSection() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!canvasRef.current || !containerRef.current) return;
+    if (!canvasRef.current || !canvasRef.current) return;
 
     // Scene
     const scene = new THREE.Scene();
@@ -24,8 +23,8 @@ export default function HeroImageSection() {
       alpha: true,
     });
     renderer.setSize(
-      containerRef.current.clientWidth,
-      containerRef.current.clientHeight,
+      canvasRef.current.clientWidth,
+      canvasRef.current.clientHeight
     );
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -35,9 +34,9 @@ export default function HeroImageSection() {
     // Camera
     const camera = new THREE.PerspectiveCamera(
       50,
-      containerRef.current.clientWidth / containerRef.current.clientHeight,
+      canvasRef.current.clientWidth / canvasRef.current.clientHeight,
       0.1,
-      1000,
+      1000
     );
     camera.position.set(0, 0, 5);
 
@@ -110,7 +109,7 @@ export default function HeroImageSection() {
         scene.add(model);
       },
       undefined,
-      (err) => console.error("Error loading GLB:", err),
+      (err) => console.error("Error loading GLB:", err)
     );
 
     // Animate
@@ -122,18 +121,28 @@ export default function HeroImageSection() {
     animate();
 
     // Resize
+    let resizeTimeout: NodeJS.Timeout | null = null;
+
     const handleResize = () => {
-      const width = containerRef.current!.clientWidth;
-      const height = containerRef.current!.clientHeight;
-      camera.aspect = width / height;
-      camera.updateProjectionMatrix();
-      renderer.setSize(width, height);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      if (resizeTimeout) clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        const width = canvasRef.current?.clientWidth;
+        const height = canvasRef.current?.clientHeight;
+        if (!width || !height || width === 0 || height === 0) {
+          return;
+        }
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+        renderer.setSize(width, height);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      }, 150); // 150ms debounce
     };
+
     window.addEventListener("resize", handleResize);
 
     return () => {
       window.removeEventListener("resize", handleResize);
+      if (resizeTimeout) clearTimeout(resizeTimeout);
       renderer.dispose();
       scene.traverse((child) => {
         if (child instanceof THREE.Mesh) {
@@ -157,27 +166,24 @@ export default function HeroImageSection() {
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 1.2, ease: [0.25, 0.4, 0.25, 1] }}
       >
-        <div className="mx-auto max-w-4/5 px-6 botder-2 border-black ">
-          <div ref={containerRef} className="relative h-[600px]">
-            <canvas
-              ref={canvasRef}
-              className="absolute top-0 left-0 w-full h-full rounded-lg border-2 border-black"
-              style={{ pointerEvents: "auto" }}
-            />
-
-            {/* Content overlay */}
-            <div className="absolute top-8 left-8 z-20 max-w-lg">
-              <h2 className="text-foreground text-xl font-semibold lg:text-2xl mb-3">
-                Transform Your Academic Journey
-              </h2>
-              <p className="text-foreground text-sm leading-relaxed">
-                Experience the future of learning with AI Arcade. Get instant,
-                accurate answers to your academic questions powered by
-                cutting-edge RAG technology.
-              </p>
-              <p className="text-[10px]">*Model may be changed in the future</p>
-            </div>
+        <div className="mx-auto max-w-4/5 px-6 flex flex-row ">
+          {/* Content overlay */}
+          <div className=" max-w-lg pt-2 pr-10">
+            <h2 className="text-foreground text-xl font-semibold lg:text-2xl mb-3">
+              Transform Your Academic Journey
+            </h2>
+            <p className="text-foreground text-sm leading-relaxed">
+              Experience the future of learning with AI Arcade. Get instant,
+              accurate answers to your academic questions powered by
+              cutting-edge RAG technology.
+            </p>
+            <p className="text-[10px]">*Model may be changed in the future</p>
           </div>
+          <canvas
+            ref={canvasRef}
+            className=" w-3/5 h-3/5 rounded-lg border-2 border-black"
+            style={{ pointerEvents: "auto" }}
+          />
         </div>
       </motion.div>
     </section>

@@ -23,7 +23,7 @@ export default function StatsSection() {
             Game On!
           </h2>
           <p className="mt-4 text-lg">
-            Powered by advanced RAG technology it delivers instant, accurate
+            Powered by advanced RAG technology, it delivers instant, accurate
             answers to your academic queries in a fun experience.
           </p>
           <div className="mt-8 flex gap-3">
@@ -34,12 +34,6 @@ export default function StatsSection() {
                   strokeWidth={2.5}
                   className="size-3.5! opacity-50"
                 />
-              </Link>
-            </Button>
-            <Button asChild variant="outline" className="pl-2.5">
-              <Link href="#">
-                <Calendar className="!size-3.5 opacity-50" strokeWidth={2.5} />
-                Schedule Campus Demo
               </Link>
             </Button>
           </div>
