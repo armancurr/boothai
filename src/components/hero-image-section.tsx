@@ -121,18 +121,28 @@ export default function HeroImageSection() {
     animate();
 
     // Resize
+    let resizeTimeout: NodeJS.Timeout | null = null;
+
     const handleResize = () => {
-      const width: number | undefined = canvasRef.current?.clientWidth;
-      const height: number | undefined = canvasRef.current?.clientHeight;
-      camera.aspect = width / height;
-      camera.updateProjectionMatrix();
-      renderer.setSize(width, height);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      if (resizeTimeout) clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        const width = canvasRef.current?.clientWidth;
+        const height = canvasRef.current?.clientHeight;
+        if (!width || !height || width === 0 || height === 0) {
+          return;
+        }
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+        renderer.setSize(width, height);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      }, 150); // 150ms debounce
     };
+
     window.addEventListener("resize", handleResize);
 
     return () => {
       window.removeEventListener("resize", handleResize);
+      if (resizeTimeout) clearTimeout(resizeTimeout);
       renderer.dispose();
       scene.traverse((child) => {
         if (child instanceof THREE.Mesh) {
